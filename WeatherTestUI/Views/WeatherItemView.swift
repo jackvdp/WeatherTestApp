@@ -12,7 +12,7 @@ struct WeatherItemView: View {
     let weather: DisplayedWeather
     
     var body: some View {
-        HStack {
+        HStack(spacing: 20) {
             Image(systemName: weather.weather)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -21,7 +21,7 @@ struct WeatherItemView: View {
             VStack(alignment: .leading) {
                 Text("Temp: \(Int(weather.temperature)) C")
                 Text("Real Feel: \(Int(weather.realFeel)) C")
-                
+                    .opacity(0.6)
             }
             Spacer()
             VStack(alignment: .leading) {
