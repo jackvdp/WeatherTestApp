@@ -6,13 +6,27 @@
 //
 
 import SwiftUI
+import CoreLocationUI
 
 struct ContentView: View {
     
-    @StateObject var viewModel = ViewModel()
+    @StateObject var viewModel = WeatherViewModel()
     
     var body: some View {
-        WeatherView(viewModel: viewModel)
+        VStack {
+            if let currentWeather = viewModel.currentWeather {
+                WeatherView(viewModel: viewModel, currentWeather: currentWeather)
+            } else {
+                Text("Click to get weather for current location")
+                    .fontWeight(.bold)
+                LocationButton {
+                    viewModel.requestLocation()
+                }
+                .background(Color.black)
+                .clipShape(Capsule())
+                .foregroundColor(.white)
+            }
+        }
     }
 }
 

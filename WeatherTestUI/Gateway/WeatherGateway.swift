@@ -7,9 +7,8 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
-class WeatherAPI {
+class WeatherGateway {
     
     func getForLocation(longtitude: Double, latitude: Double, completion: @escaping (Weather?) -> ()) {
         
