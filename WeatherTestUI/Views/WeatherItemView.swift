@@ -13,20 +13,28 @@ struct WeatherItemView: View {
     
     var body: some View {
         HStack(spacing: 20) {
+            Text(weather.hour.description)
+                .opacity(0.6)
+                .frame(width: 25)
+                .font(.callout)
             Image(systemName: weather.weather)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .font(.body)
-                .frame(width: 50, height: 50)
+                .frame(width: 40, height: 40)
             VStack(alignment: .leading) {
-                Text("Temp: \(Int(weather.temperature)) C")
                 Text("Real Feel: \(Int(weather.realFeel)) C")
-                    .opacity(0.6)
+                if weather.chanceOfRain == 0 {
+                    Text("Wind: \(Int(weather.windSpeed)) mph")
+                } else {
+                    Text("Rain: \(Int(weather.chanceOfRain))%")
+                }
             }
+            .opacity(0.6)
+            .font(.callout)
             Spacer()
-            VStack(alignment: .leading) {
-                Text("@ \(weather.hour):00")
-                    .font(.title2)
+            VStack {
+                Text("\(Int(weather.temperature)) C")
+                    .font(.title)
             }
         }
         .padding()
@@ -35,6 +43,6 @@ struct WeatherItemView: View {
 
 struct WeatherItemView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherItemView(weather: DisplayedWeather(hour: 13, temperature: 21, realFeel: 23, weather: "cloud"))
+        WeatherItemView(weather: DisplayedWeather(hour: 13, temperature: 21, realFeel: 23, chanceOfRain: 60, windSpeed: 7, weather: "cloud"))
     }
 }

@@ -31,6 +31,6 @@ struct CurrentWeatherView: View {
 struct CurrentWeatherView_Previews: PreviewProvider {
     static var previews: some View {
         CurrentWeatherView(location: "London",
-                           weather: DisplayedWeather(hour: 13, temperature: 21, realFeel: 23, weather: "cloud"))
+                           weather: DisplayedWeather(hour: 13, temperature: 21, realFeel: 23, chanceOfRain: 60, windSpeed: 7, weather: "cloud"))
     }
 }

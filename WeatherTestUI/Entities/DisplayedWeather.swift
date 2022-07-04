@@ -12,6 +12,8 @@ struct DisplayedWeather: Identifiable {
     var hour: Int
     var temperature: Double
     var realFeel: Double
+    var chanceOfRain: Int
+    var windSpeed: Int
     var weather: String
 }
 

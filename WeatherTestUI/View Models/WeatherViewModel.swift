@@ -90,10 +90,14 @@ class WeatherViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     private func changeTimeIntoWeather(time: TimeSery) -> DisplayedWeather? {
         if let hour = self.getHour(dateString: time.time) {
             
-            return DisplayedWeather(hour: hour,
-                              temperature: time.screenTemperature,
-                              realFeel: time.feelsLikeTemperature,
-                              weather: getWeatherImage(code: time.significantWeatherCode))
+            return DisplayedWeather(
+                hour: hour,
+                temperature: time.screenTemperature,
+                realFeel: time.feelsLikeTemperature,
+                chanceOfRain: time.probOfPrecipitation,
+                windSpeed: Int(time.windSpeed10M),
+                weather: getWeatherImage(code: time.significantWeatherCode)
+            )
             
         }
         return nil
