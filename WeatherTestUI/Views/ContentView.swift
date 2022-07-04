@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var viewModel = ViewModel()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        WeatherView(viewModel: viewModel)
     }
 }
 
@@ -19,3 +21,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
