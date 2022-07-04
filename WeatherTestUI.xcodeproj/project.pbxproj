@@ -275,7 +275,6 @@
 			mainGroup = 6D84417328731BF900065E97;
 			packageReferences = (
 				6D8441AD28731E1C00065E97 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				6D8441B3287321F300065E97 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = 6D84417D28731BF900065E97 /* Products */;
 			projectDirPath = "";
@@ -665,14 +664,6 @@
 		6D8441AD28731E1C00065E97 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		6D8441B3287321F300065E97 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.0.0;
