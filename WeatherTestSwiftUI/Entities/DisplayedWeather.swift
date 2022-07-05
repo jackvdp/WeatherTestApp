@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DisplayedWeather: Identifiable {
+struct DisplayedHourlyWeather: Identifiable {
     var id = UUID()
     var hour: Int
     var temperature: Double
@@ -17,3 +17,14 @@ struct DisplayedWeather: Identifiable {
     var weather: String
 }
 
+struct DisplayedDailyWeather: Identifiable {
+    var id = UUID()
+    var day: String
+    var maxTemp: Double
+    var minTemp: Double
+    var maxRealFeel: Double
+    var minRealFeel: Double
+    var chanceOfRain: Int
+    var windSpeed: Int
+    var weather: String
+}

@@ -9,9 +9,9 @@ import Foundation
 import SwiftUI
 struct WeatherView: View {
     
-    @ObservedObject var viewModel: WeatherViewModel
-    let currentWeather: DisplayedWeather
-    let upcomingWeather: [DisplayedWeather]
+    @ObservedObject var viewModel: CurrentLocationWeatherViewModel
+    let currentWeather: DisplayedHourlyWeather
+    let upcomingWeather: [DisplayedHourlyWeather]
     let locationName: String
     
     var body: some View {
@@ -32,8 +32,8 @@ struct WeatherView: View {
 struct WeatherView_Previews: PreviewProvider {
     static var previews: some View {
         WeatherView(
-            viewModel: WeatherViewModel(),
-            currentWeather: DisplayedWeather(
+            viewModel: CurrentLocationWeatherViewModel(),
+            currentWeather: DisplayedHourlyWeather(
                 hour: 13,
                 temperature: 21,
                 realFeel: 23,
@@ -41,21 +41,21 @@ struct WeatherView_Previews: PreviewProvider {
                 windSpeed: 7,
                 weather: "cloud"),
             upcomingWeather: [
-                DisplayedWeather(
+                DisplayedHourlyWeather(
                     hour: 13,
                     temperature: 21,
                     realFeel: 23,
                     chanceOfRain: 60,
                     windSpeed: 7,
                     weather: "cloud"),
-                DisplayedWeather(
+                DisplayedHourlyWeather(
                     hour: 13,
                     temperature: 21,
                     realFeel: 23,
                     chanceOfRain: 60,
                     windSpeed: 7,
                     weather: "cloud"),
-                DisplayedWeather(
+                DisplayedHourlyWeather(
                     hour: 13,
                     temperature: 21,
                     realFeel: 23,

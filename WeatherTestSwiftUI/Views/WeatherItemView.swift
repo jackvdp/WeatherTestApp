@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WeatherItemView: View {
     
-    let weather: DisplayedWeather
+    let weather: DisplayedHourlyWeather
     
     var body: some View {
         HStack(spacing: 20) {
@@ -41,7 +41,7 @@ struct WeatherItemView: View {
 
 struct WeatherItemView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherItemView(weather: DisplayedWeather(hour: 13,
+        WeatherItemView(weather: DisplayedHourlyWeather(hour: 13,
                                                   temperature: 21,
                                                   realFeel: 23,
                                                   chanceOfRain: 60,

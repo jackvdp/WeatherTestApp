@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-extension WeatherViewModel: CLLocationManagerDelegate {
+extension CurrentLocationWeatherViewModel: CLLocationManagerDelegate {
     
     func requestLocation() {
         manager.requestLocation()

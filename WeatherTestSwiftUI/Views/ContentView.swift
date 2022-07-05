@@ -10,7 +10,7 @@ import CoreLocationUI
 
 struct ContentView: View {
     
-    @StateObject var viewModel = WeatherViewModel()
+    @StateObject var viewModel = CurrentLocationWeatherViewModel()
     
     var body: some View {
         VStack {
@@ -19,7 +19,7 @@ struct ContentView: View {
                 WeatherView(
                     viewModel: viewModel,
                     currentWeather: currentWeather,
-                    upcomingWeather: viewModel.upcomingWeather,
+                    upcomingWeather: viewModel.upcomingHourlyWeather,
                     locationName: locationName
                 )
             } else {
