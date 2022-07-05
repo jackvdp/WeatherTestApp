@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct WeatherTestUIApp: App {
+struct WeatherTestSwiftUIApp: App {
     
     var body: some Scene {
         WindowGroup {

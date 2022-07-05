@@ -1,22 +1,23 @@
 //
-//  WeatherAPI.swift
+//  DailyForecastsGateway.swift
 //  WeatherTestUI
 //
-//  Created by Jack Vanderpump on 04/07/2022.
+//  Created by Jack Vanderpump on 05/07/2022.
 //
 
 import Foundation
 import Alamofire
 
-class WeatherGateway {
+
+class DailyForecatsGateway {
     
     func getForLocation(longtitude: Double, latitude: Double, completion: @escaping (Weather?) -> ()) {
         
-        let url = "https://api-metoffice.apiconnect.ibmcloud.com/v0/forecasts/point/hourly?latitude=\(latitude)&longitude=\(longtitude)"
+        let url = "https://api-metoffice.apiconnect.ibmcloud.com/v0/forecasts/point/daily?latitude=\(latitude)&longitude=\(longtitude)"
         
         let headers = HTTPHeaders([
-            HTTPHeader(name: "X-IBM-Client-Id", value: "df54e0e2fde7346f66bb16575f1da693"),
-            HTTPHeader(name: "X-IBM-Client-Secret", value: "849bbcf5388c78566f6dcc8b61b7d901"),
+            HTTPHeader(name: APIKeys.clientIDHeader, value: APIKeys.clientID),
+            HTTPHeader(name: APIKeys.clientSecretHeader, value: APIKeys.clientSecret),
         ])
         
         AF.request(url, headers: headers).response { res in
