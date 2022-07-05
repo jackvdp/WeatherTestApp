@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-class WeatherViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
+class WeatherViewModel: NSObject, ObservableObject {
     
     @Published var currentWeather: DisplayedWeather?
     @Published var upcomingWeather = [DisplayedWeather]()
@@ -18,7 +18,6 @@ class WeatherViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var location: CLLocationCoordinate2D? {
         didSet {
             getWeather()
-            getLocationName()
         }
     }
     
@@ -30,37 +29,11 @@ class WeatherViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     deinit {}
     
-    func requestLocation() {
-        manager.requestLocation()
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        location = locations.first?.coordinate
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
-    }
-    
-    func getLocationName() {
-        let geocoder = CLGeocoder()
-        
-        guard let location = location else {
-            return
-        }
-        
-        geocoder.reverseGeocodeLocation(CLLocation(latitude: location.latitude, longitude: location.longitude)) { placemarks, error in
-            if let firstLocation = placemarks?[0] {
-                if let name = firstLocation.name {
-                    self.locationName = name
-                }
-            }
-        }
-    }
-    
     func getWeather() {
         
         guard let location = location else { return }
+        
+        getLocationName(location)
 
         ForecastController().getHourly(longtitude: location.longitude, latitude: location.latitude) { weather in
             
@@ -91,6 +64,18 @@ class WeatherViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
+    private func getLocationName(_ location: CLLocationCoordinate2D) {
+        let geocoder = CLGeocoder()
+        
+        geocoder.reverseGeocodeLocation(CLLocation(latitude: location.latitude, longitude: location.longitude)) { placemarks, error in
+            if let firstLocation = placemarks?[0] {
+                if let name = firstLocation.name {
+                    self.locationName = name
+                }
+            }
+        }
+    }
+    
     private func changeTimeIntoWeather(time: HourlyWeather.TimeSery) -> DisplayedWeather? {
         if let hour = self.getHour(dateString: time.time) {
             
@@ -107,13 +92,6 @@ class WeatherViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         return nil
     }
     
-    private func getDate(dateString: String) -> Date? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm'Z'"
-        dateFormatter.timeZone = .init(secondsFromGMT: 0)
-        return dateFormatter.date(from: dateString)
-    }
-    
     private func getHour(dateString: String) -> Int? {
         if let date = getDate(dateString: dateString) {
             let calendar = Calendar.current
@@ -121,6 +99,13 @@ class WeatherViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
             return hour
         }
         return nil
+    }
+    
+    private func getDate(dateString: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm'Z'"
+        dateFormatter.timeZone = .init(secondsFromGMT: 0)
+        return dateFormatter.date(from: dateString)
     }
     
     func getWeatherImage(code: Int) -> String {
