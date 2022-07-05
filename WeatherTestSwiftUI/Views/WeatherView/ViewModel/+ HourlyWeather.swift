@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-extension CurrentLocationViewModel {
+extension WeatherViewModel {
     
     func getHourlyWeather(_ location: CLLocationCoordinate2D) {
         forecastController.getHourly(longtitude: location.longitude, latitude: location.latitude) { weather in
@@ -19,6 +19,8 @@ extension CurrentLocationViewModel {
                 
                 var nextTimes = times
                 guard !nextTimes.isEmpty else { return }
+                self.currentHourlyWeather = nil
+                self.upcomingHourlyWeather = []
                 
                 let firstTime = nextTimes.removeFirst()
                 self.currentHourlyWeather = self.convertHourlyWeatherToDisplayedWeather(firstTime)

@@ -8,10 +8,9 @@
 import Foundation
 import SwiftUI
 
-
-struct WeatherView<T: WeatherViewModel>: View {
+struct WeatherView: View {
     
-    @ObservedObject var viewModel: T
+    @ObservedObject var viewModel: WeatherViewModel
     let currentHourlyWeather: DisplayedHourlyWeather
     let currentDailyWeather: DisplayedDailyWeather
     let upcomingHourlyWeather: [DisplayedHourlyWeather]

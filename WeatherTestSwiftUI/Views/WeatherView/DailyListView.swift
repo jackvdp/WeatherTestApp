@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct DailyListView<T: WeatherViewModel>: View {
-    @ObservedObject var viewModel: T
+struct DailyListView: View {
+    @ObservedObject var viewModel: WeatherViewModel
     let dailyWeather: [DisplayedDailyWeather]
     
     var body: some View {

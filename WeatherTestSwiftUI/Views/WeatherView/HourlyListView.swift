@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct HourlyListView<T: WeatherViewModel>: View {
+struct HourlyListView: View {
     
-    @ObservedObject var viewModel: T
+    @ObservedObject var viewModel: WeatherViewModel
     let hourlyWeather: [DisplayedHourlyWeather]
     
     var body: some View {

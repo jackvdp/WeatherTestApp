@@ -1,15 +1,21 @@
 //
-//  LocationDelegate.swift
-//  WeatherTestSwiftUI
+//  ViewModel.swift
+//  WeatherTestUI
 //
-//  Created by Jack Vanderpump on 05/07/2022.
+//  Created by Jack Vanderpump on 04/07/2022.
 //
 
 import Foundation
 import CoreLocation
 
-extension CurrentLocationViewModel: CLLocationManagerDelegate {
-    
+class CurrentLocationViewModel: WeatherViewModel, CLLocationManagerDelegate {
+
+    override init() {
+        super.init()
+        manager.delegate = self
+        requestLocation()
+    }
+
     func requestLocation() {
         manager.requestLocation()
     }
@@ -21,4 +27,5 @@ extension CurrentLocationViewModel: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
+    
 }
