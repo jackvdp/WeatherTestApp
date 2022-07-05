@@ -91,7 +91,7 @@ class WeatherViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
-    private func changeTimeIntoWeather(time: TimeSery) -> DisplayedWeather? {
+    private func changeTimeIntoWeather(time: HourlyWeather.TimeSery) -> DisplayedWeather? {
         if let hour = self.getHour(dateString: time.time) {
             
             return DisplayedWeather(

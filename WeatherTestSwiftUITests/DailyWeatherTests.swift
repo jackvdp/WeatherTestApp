@@ -1,5 +1,5 @@
 //
-//  HourlyWeatherTests.swift
+//  DailyWeatherTests.swift
 //  WeatherTestSwiftUITests
 //
 //  Created by Jack Vanderpump on 05/07/2022.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import WeatherTestSwiftUI
 
-class HourlyWeatherTests: XCTestCase {
+class DailyWeatherTests: XCTestCase {
     
     let latittude = 51.4934
     let longitude = 0.0098
@@ -22,7 +22,7 @@ class HourlyWeatherTests: XCTestCase {
     }
 
     func testGatewayGets200StatusCode() {
-        let gateway = HourlyForecatsGateway()
+        let gateway = DailyForecatsGateway()
         var statusCode: Int?
         let promise = expectation(description: "Completion handler invoked")
         
@@ -37,8 +37,8 @@ class HourlyWeatherTests: XCTestCase {
     }
     
     func testGatewayGetsWeatherModel() {
-        let gateway = HourlyForecatsGateway()
-        var weather: HourlyWeather?
+        let gateway = DailyForecatsGateway()
+        var weather: DailyWeather?
         let promise = expectation(description: "Completion handler invoked")
         
         gateway.getForLocation(longtitude: longitude, latitude: latittude) { _, w in
@@ -51,7 +51,7 @@ class HourlyWeatherTests: XCTestCase {
     }
     
     func testUseCaseProvidesErrorOnBadLocation() {
-        let useCase = GetHourlyFoecasts()
+        let useCase = GetDailyFoecasts()
         let promise = expectation(description: "Completion handler invoked")
         var error: Error?
         let badLongitutde: Double = 200
@@ -68,9 +68,9 @@ class HourlyWeatherTests: XCTestCase {
     func testControllerSendsBackWeather() {
         let controller = ForecastController()
         let promise = expectation(description: "Completion handler invoked")
-        var weather: HourlyWeather?
+        var weather: DailyWeather?
         
-        controller.getHourly(longtitude: longitude, latitude: latittude) { w in
+        controller.getDaily(longtitude: longitude, latitude: latittude) { w in
             weather = w
             promise.fulfill()
         }

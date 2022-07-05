@@ -11,7 +11,7 @@ import Alamofire
 
 class DailyForecatsGateway {
     
-    func getForLocation(longtitude: Double, latitude: Double, completion: @escaping (Int, Weather?) -> ()) {
+    func getForLocation(longtitude: Double, latitude: Double, completion: @escaping (Int, DailyWeather?) -> ()) {
         
         let url = "https://api-metoffice.apiconnect.ibmcloud.com/v0/forecasts/point/daily?latitude=\(latitude)&longitude=\(longtitude)"
         
@@ -30,7 +30,7 @@ class DailyForecatsGateway {
             
             let decoder = JSONDecoder()
             
-            let weatherModel = try? decoder.decode(Weather.self, from: data)
+            let weatherModel = try? decoder.decode(DailyWeather.self, from: data)
             
             completion(code, weatherModel)
         }

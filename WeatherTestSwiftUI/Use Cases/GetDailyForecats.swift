@@ -9,14 +9,14 @@ import Foundation
 
 class GetDailyFoecasts {
     
-    func execute(longtitude: Double, latitude: Double, completion: @escaping (Weather?) -> ()) {
+    func execute(longtitude: Double, latitude: Double, completion: @escaping (DailyWeather?, Error?) -> ()) {
         DailyForecatsGateway().getForLocation(longtitude: longtitude, latitude: latitude) { code, weather in
             
             if code == 200 {
-                completion(weather)
+                completion(weather, nil)
             } else {
                 print("\(code), Error")
-                completion(nil)
+                completion(weather, NSError(domain: "Error", code: code))
             }
             
         }
