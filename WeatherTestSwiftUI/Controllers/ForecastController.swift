@@ -10,7 +10,9 @@ import Foundation
 class ForecastController {
     
     func getHourly(longtitude: Double, latitude: Double, completion: @escaping (Weather?) -> ()) {
-        GetHourlyFoecasts().execute(longtitude: longtitude, latitude: latitude, completion: completion)
+        GetHourlyFoecasts().execute(longtitude: longtitude, latitude: latitude) { weather, error in
+            completion(weather)
+        }
     }
     
     func getDaily(longtitude: Double, latitude: Double, completion: @escaping (Weather?) -> ()) {

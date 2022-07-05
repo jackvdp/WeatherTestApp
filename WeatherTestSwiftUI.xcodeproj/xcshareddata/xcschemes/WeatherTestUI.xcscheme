@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6D84418B28731BFA00065E97"
-               BuildableName = "WeatherTestUITests.xctest"
+               BuildableName = "WeatherTestSwiftUITests.xctest"
                BlueprintName = "WeatherTestSwiftUITests"
                ReferencedContainer = "container:WeatherTestSwiftUI.xcodeproj">
             </BuildableReference>
@@ -45,6 +45,16 @@
                BlueprintIdentifier = "6D84419528731BFA00065E97"
                BuildableName = "WeatherTestUIUITests.xctest"
                BlueprintName = "WeatherTestUIUITests"
+               ReferencedContainer = "container:WeatherTestSwiftUI.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6DF852EA28743A4600289CE8"
+               BuildableName = "WeatherTestSwiftUIUITests.xctest"
+               BlueprintName = "WeatherTestSwiftUIUITests"
                ReferencedContainer = "container:WeatherTestSwiftUI.xcodeproj">
             </BuildableReference>
          </TestableReference>

@@ -10,8 +10,15 @@ import Foundation
 
 class GetHourlyFoecasts {
     
-    func execute(longtitude: Double, latitude: Double, completion: @escaping (Weather?) -> ()) {
-        HourlyForecatsGateway().getForLocation(longtitude: longtitude, latitude: latitude, completion: completion)
+    func execute(longtitude: Double, latitude: Double, completion: @escaping (Weather?, Error?) -> ()) {
+        HourlyForecatsGateway().getForLocation(longtitude: longtitude, latitude: latitude) { code, weather in
+            if code == 200 {
+                completion(weather, nil)
+            } else {
+                print("\(code), Error")
+                completion(weather, NSError(domain: "Error", code: code))
+            }
+        }
     }
     
 }

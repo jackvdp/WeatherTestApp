@@ -11,8 +11,8 @@ import CoreLocation
 class WeatherViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     @Published var currentWeather: DisplayedWeather?
-    @Published var weather = [DisplayedWeather]()
-    @Published var locationName: String = "New York"
+    @Published var upcomingWeather = [DisplayedWeather]()
+    @Published var locationName: String?
     let manager = CLLocationManager()
     
     @Published var location: CLLocationCoordinate2D? {
@@ -62,7 +62,7 @@ class WeatherViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         
         guard let location = location else { return }
 
-        HourlyForecatsGateway().getForLocation(longtitude: location.longitude, latitude: location.latitude) { weather in
+        ForecastController().getHourly(longtitude: location.longitude, latitude: location.latitude) { weather in
             
             guard let weather = weather else {
                 return
@@ -72,12 +72,16 @@ class WeatherViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
                 
                 var nextTimes = times
                 guard !nextTimes.isEmpty else { return }
+                
+                self.currentWeather = nil
+                self.upcomingWeather = []
+                
                 let firstTime = nextTimes.removeFirst()
                 self.currentWeather = self.changeTimeIntoWeather(time: firstTime)
                 
                 for time in nextTimes {
                     if let singleWeather = self.changeTimeIntoWeather(time: time) {
-                        self.weather.append(singleWeather)
+                        self.upcomingWeather.append(singleWeather)
                     }
                     
                 }

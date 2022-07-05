@@ -14,8 +14,14 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            if let currentWeather = viewModel.currentWeather {
-                WeatherView(viewModel: viewModel, currentWeather: currentWeather)
+            if let currentWeather = viewModel.currentWeather,
+               let locationName = viewModel.locationName {
+                WeatherView(
+                    viewModel: viewModel,
+                    currentWeather: currentWeather,
+                    upcomingWeather: viewModel.upcomingWeather,
+                    locationName: locationName
+                )
             } else {
                 Text("Click to get weather for current location")
                     .fontWeight(.bold)
