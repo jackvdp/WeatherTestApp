@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6D84418B28731BFA00065E97"
+               BlueprintIdentifier = "6DF8530B28743D5D00289CE8"
                BuildableName = "WeatherTestSwiftUITests.xctest"
                BlueprintName = "WeatherTestSwiftUITests"
                ReferencedContainer = "container:WeatherTestSwiftUI.xcodeproj">
@@ -80,6 +80,18 @@
             ReferencedContainer = "container:WeatherTestSwiftUI.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "clientSecret"
+            value = "849bbcf5388c78566f6dcc8b61b7d901"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "clientID"
+            value = "df54e0e2fde7346f66bb16575f1da693"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <LocationScenarioReference
          identifier = "London, England"
          referenceType = "1">

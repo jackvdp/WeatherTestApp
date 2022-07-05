@@ -25,7 +25,6 @@
 		6DF852E32874350A00289CE8 /* DailyForecastsGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF852E22874350900289CE8 /* DailyForecastsGateway.swift */; };
 		6DF852E62874354C00289CE8 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF852E52874354C00289CE8 /* Keys.swift */; };
 		6DF8531628743D7100289CE8 /* HourlyWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF8531528743D7100289CE8 /* HourlyWeatherTests.swift */; };
-		6DF85318287442F000289CE8 /* APIKeysPrivate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF85317287442F000289CE8 /* APIKeysPrivate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +57,6 @@
 		6DF852E52874354C00289CE8 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		6DF8530C28743D5D00289CE8 /* WeatherTestSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherTestSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DF8531528743D7100289CE8 /* HourlyWeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherTests.swift; sourceTree = "<group>"; };
-		6DF85317287442F000289CE8 /* APIKeysPrivate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeysPrivate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				6DF852E52874354C00289CE8 /* Keys.swift */,
-				6DF85317287442F000289CE8 /* APIKeysPrivate.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -314,7 +311,6 @@
 				6D8441AA28731C2900065E97 /* WeatherViewModel.swift in Sources */,
 				6D9492EF287355CD00843835 /* CurrentWeatherView.swift in Sources */,
 				6DF852D92874337800289CE8 /* ForecastController.swift in Sources */,
-				6DF85318287442F000289CE8 /* APIKeysPrivate.swift in Sources */,
 				6D8441BD287340A800065E97 /* WeatherItemView.swift in Sources */,
 				6D8441B128731E2700065E97 /* HourlyForecatsGateway.swift in Sources */,
 				6D84418028731BF900065E97 /* WeatherTestSwiftUIApp.swift in Sources */,
