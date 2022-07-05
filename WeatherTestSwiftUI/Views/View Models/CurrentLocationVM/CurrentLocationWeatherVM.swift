@@ -12,6 +12,7 @@ class CurrentLocationWeatherViewModel: NSObject, ObservableObject {
     
     let manager = CLLocationManager()
     let forecastController = ForecastController()
+    @Published var selection: DailyHourly = .daily
     @Published var currentHourlyWeather: DisplayedHourlyWeather?
     @Published var currentDailyWeather: DisplayedDailyWeather?
     @Published var upcomingHourlyWeather = [DisplayedHourlyWeather]()
@@ -55,4 +56,10 @@ class CurrentLocationWeatherViewModel: NSObject, ObservableObject {
         }
     }
     
+}
+
+enum DailyHourly: String, CaseIterable, Identifiable {
+    case daily = "Daily"
+    case hourly = "Hourly"
+    var id: Self { self }
 }

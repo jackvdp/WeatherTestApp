@@ -21,7 +21,8 @@ struct ContentView: View {
                     viewModel: viewModel,
                     currentHourlyWeather: currentHourlyWeather,
                     currentDailyWeather: currentDailyWeather,
-                    upcomingWeather: viewModel.upcomingHourlyWeather,
+                    upcomingHourlyWeather: viewModel.upcomingHourlyWeather,
+                    upcomingDailyWeather: viewModel.upcomingDailyWeather,
                     locationName: locationName
                 )
             } else {

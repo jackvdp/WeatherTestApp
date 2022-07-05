@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct SegmentedPicker: View {
+    
+    @Binding var selection: DailyHourly
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Picker("", selection: $selection) {
+            ForEach(DailyHourly.allCases) { type in
+                Text(type.rawValue)
+                    .tag(type)
+            }
+        }
+        .pickerStyle(.segmented)
+        .frame(width: 200)
     }
 }
 
 struct SegmentedPicker_Previews: PreviewProvider {
     static var previews: some View {
-        SegmentedPicker()
+        SegmentedPicker(selection: .constant(.daily))
     }
 }

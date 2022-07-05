@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct WeatherItemView: View {
+struct HourlyItemView: View {
     
     let weather: DisplayedHourlyWeather
     
@@ -41,6 +41,6 @@ struct WeatherItemView: View {
 
 struct WeatherItemView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherItemView(weather: Mocks.hourlyWeather)
+        HourlyItemView(weather: Mocks.hourlyWeather)
     }
 }

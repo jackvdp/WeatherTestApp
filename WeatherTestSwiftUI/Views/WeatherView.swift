@@ -12,22 +12,24 @@ struct WeatherView: View {
     @ObservedObject var viewModel: CurrentLocationWeatherViewModel
     let currentHourlyWeather: DisplayedHourlyWeather
     let currentDailyWeather: DisplayedDailyWeather
-    let upcomingWeather: [DisplayedHourlyWeather]
+    let upcomingHourlyWeather: [DisplayedHourlyWeather]
+    let upcomingDailyWeather: [DisplayedDailyWeather]
     let locationName: String
     
     var body: some View {
         CurrentWeatherView(location: locationName,
                            currentHourWeather: currentHourlyWeather,
                            currentDailyWeather: currentDailyWeather)
-        List {
-            ForEach(upcomingWeather) { weather in
-                WeatherItemView(weather: weather)
-            }
+        SegmentedPicker(selection: $viewModel.selection)
+        switch viewModel.selection {
+        case .daily:
+            DailyListView(viewModel: viewModel,
+                           dailyWeather: upcomingDailyWeather)
+        case .hourly:
+            HourlyListView(viewModel: viewModel,
+                           hourlyWeather: upcomingHourlyWeather)
         }
-        .listStyle(.plain)
-        .refreshable {
-            viewModel.getWeather()
-        }
+        
     }
 }
 
@@ -37,7 +39,8 @@ struct WeatherView_Previews: PreviewProvider {
             viewModel: CurrentLocationWeatherViewModel(),
             currentHourlyWeather: Mocks.hourlyWeather,
             currentDailyWeather: Mocks.dailyWeather,
-            upcomingWeather: Mocks.hourlyWeatherArray,
+            upcomingHourlyWeather: Mocks.hourlyWeatherArray,
+            upcomingDailyWeather: Mocks.dailyWeatherArray,
             locationName: "London")
     }
 }
