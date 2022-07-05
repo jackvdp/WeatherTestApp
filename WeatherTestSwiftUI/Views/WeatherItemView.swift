@@ -32,10 +32,8 @@ struct WeatherItemView: View {
             .opacity(0.6)
             .font(.callout)
             Spacer()
-            VStack {
-                Text("\(Int(weather.temperature)) C")
-                    .font(.title)
-            }
+            Text("\(Int(weather.temperature)) C")
+                .font(.title)
         }
         .padding()
     }
@@ -43,6 +41,11 @@ struct WeatherItemView: View {
 
 struct WeatherItemView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherItemView(weather: DisplayedWeather(hour: 13, temperature: 21, realFeel: 23, chanceOfRain: 60, windSpeed: 7, weather: "cloud"))
+        WeatherItemView(weather: DisplayedWeather(hour: 13,
+                                                  temperature: 21,
+                                                  realFeel: 23,
+                                                  chanceOfRain: 60,
+                                                  windSpeed: 7,
+                                                  weather: "cloud"))
     }
 }
