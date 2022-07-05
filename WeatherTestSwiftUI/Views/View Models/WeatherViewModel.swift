@@ -62,7 +62,7 @@ class WeatherViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         
         guard let location = location else { return }
 
-        WeatherGateway().getForLocation(longtitude: location.longitude, latitude: location.latitude) { weather in
+        HourlyForecatsGateway().getForLocation(longtitude: location.longitude, latitude: location.latitude) { weather in
             
             guard let weather = weather else {
                 return

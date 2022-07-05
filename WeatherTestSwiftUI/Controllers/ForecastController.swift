@@ -9,12 +9,12 @@ import Foundation
 
 class ForecastController {
     
-    func getHourlyForecasts(longtitude: Double, latitude: Double, completion: @escaping (Weather?) -> ()) {
+    func getHourly(longtitude: Double, latitude: Double, completion: @escaping (Weather?) -> ()) {
         GetHourlyFoecasts().execute(longtitude: longtitude, latitude: latitude, completion: completion)
     }
     
-    func getDailyForecasts(longtitude: Double, latitude: Double, completion: @escaping (Weather?) -> ()) {
-        
+    func getDaily(longtitude: Double, latitude: Double, completion: @escaping (Weather?) -> ()) {
+        GetDailyFoecasts().execute(longtitude: longtitude, latitude: latitude, completion: completion)
     }
     
 }
