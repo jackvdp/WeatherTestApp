@@ -24,7 +24,7 @@ struct DailyItemView: View {
                 .opacity(0.6)
             Text("\(Int(weather.maxTemp)) C")
         }
-        .padding()
+        .padding(.vertical)
     }
 }
 

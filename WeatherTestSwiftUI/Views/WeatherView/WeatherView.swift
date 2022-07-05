@@ -7,9 +7,11 @@
 
 import Foundation
 import SwiftUI
-struct WeatherView: View {
+
+
+struct WeatherView<T: WeatherViewModel>: View {
     
-    @ObservedObject var viewModel: CurrentLocationWeatherViewModel
+    @ObservedObject var viewModel: T
     let currentHourlyWeather: DisplayedHourlyWeather
     let currentDailyWeather: DisplayedDailyWeather
     let upcomingHourlyWeather: [DisplayedHourlyWeather]
@@ -36,7 +38,7 @@ struct WeatherView: View {
 struct WeatherView_Previews: PreviewProvider {
     static var previews: some View {
         WeatherView(
-            viewModel: CurrentLocationWeatherViewModel(),
+            viewModel: CurrentLocationViewModel(),
             currentHourlyWeather: Mocks.hourlyWeather,
             currentDailyWeather: Mocks.dailyWeather,
             upcomingHourlyWeather: Mocks.hourlyWeatherArray,

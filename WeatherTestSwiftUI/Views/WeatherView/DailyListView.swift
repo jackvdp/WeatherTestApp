@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct DailyListView: View {
-    @ObservedObject var viewModel: CurrentLocationWeatherViewModel
+struct DailyListView<T: WeatherViewModel>: View {
+    @ObservedObject var viewModel: T
     let dailyWeather: [DisplayedDailyWeather]
     
     var body: some View {
@@ -26,6 +26,6 @@ struct DailyListView: View {
 
 struct DailyListView_Previews: PreviewProvider {
     static var previews: some View {
-        DailyListView(viewModel: CurrentLocationWeatherViewModel(), dailyWeather: Mocks.dailyWeatherArray)
+        DailyListView(viewModel: CurrentLocationViewModel(), dailyWeather: Mocks.dailyWeatherArray)
     }
 }

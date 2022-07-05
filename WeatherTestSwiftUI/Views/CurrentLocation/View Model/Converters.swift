@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension CurrentLocationWeatherViewModel {
+extension CurrentLocationViewModel {
     
     func getDay(dateString: String) -> String? {
         if let date = getDate(dateString: dateString) {

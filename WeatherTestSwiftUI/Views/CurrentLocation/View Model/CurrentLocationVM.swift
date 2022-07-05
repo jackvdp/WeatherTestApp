@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-class CurrentLocationWeatherViewModel: NSObject, ObservableObject {
+class CurrentLocationViewModel: NSObject, ObservableObject, WeatherViewModel {
     
     let manager = CLLocationManager()
     let forecastController = ForecastController()

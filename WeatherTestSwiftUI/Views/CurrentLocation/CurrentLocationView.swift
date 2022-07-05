@@ -8,9 +8,9 @@
 import SwiftUI
 import CoreLocationUI
 
-struct ContentView: View {
+struct CurrentLocationView: View {
     
-    @StateObject var viewModel = CurrentLocationWeatherViewModel()
+    @StateObject var viewModel = CurrentLocationViewModel()
     
     var body: some View {
         VStack {
@@ -39,9 +39,9 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct CurrentLocationView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        CurrentLocationView()
     }
 }
 

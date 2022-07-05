@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class APIKeys {
     
     static let clientIDHeader = "X-IBM-Client-Id"

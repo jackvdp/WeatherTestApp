@@ -35,7 +35,7 @@ struct HourlyItemView: View {
             Text("\(Int(weather.temperature)) C")
                 .font(.title)
         }
-        .padding()
+        .padding(.vertical)
     }
 }
 

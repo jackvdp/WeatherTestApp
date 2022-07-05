@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-extension CurrentLocationWeatherViewModel {
+extension CurrentLocationViewModel {
     
     func getDailyWeather(_ location: CLLocationCoordinate2D) {
         forecastController.getDaily(longtitude: location.longitude, latitude: location.latitude) { weather in
