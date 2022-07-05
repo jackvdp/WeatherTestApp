@@ -10,13 +10,15 @@ import SwiftUI
 struct WeatherView: View {
     
     @ObservedObject var viewModel: CurrentLocationWeatherViewModel
-    let currentWeather: DisplayedHourlyWeather
+    let currentHourlyWeather: DisplayedHourlyWeather
+    let currentDailyWeather: DisplayedDailyWeather
     let upcomingWeather: [DisplayedHourlyWeather]
     let locationName: String
     
     var body: some View {
         CurrentWeatherView(location: locationName,
-                           weather: currentWeather)
+                           currentHourWeather: currentHourlyWeather,
+                           currentDailyWeather: currentDailyWeather)
         List {
             ForEach(upcomingWeather) { weather in
                 WeatherItemView(weather: weather)
@@ -33,36 +35,9 @@ struct WeatherView_Previews: PreviewProvider {
     static var previews: some View {
         WeatherView(
             viewModel: CurrentLocationWeatherViewModel(),
-            currentWeather: DisplayedHourlyWeather(
-                hour: 13,
-                temperature: 21,
-                realFeel: 23,
-                chanceOfRain: 60,
-                windSpeed: 7,
-                weather: "cloud"),
-            upcomingWeather: [
-                DisplayedHourlyWeather(
-                    hour: 13,
-                    temperature: 21,
-                    realFeel: 23,
-                    chanceOfRain: 60,
-                    windSpeed: 7,
-                    weather: "cloud"),
-                DisplayedHourlyWeather(
-                    hour: 13,
-                    temperature: 21,
-                    realFeel: 23,
-                    chanceOfRain: 60,
-                    windSpeed: 7,
-                    weather: "cloud"),
-                DisplayedHourlyWeather(
-                    hour: 13,
-                    temperature: 21,
-                    realFeel: 23,
-                    chanceOfRain: 60,
-                    windSpeed: 7,
-                    weather: "cloud")
-            ],
+            currentHourlyWeather: Mocks.hourlyWeather,
+            currentDailyWeather: Mocks.dailyWeather,
+            upcomingWeather: Mocks.hourlyWeatherArray,
             locationName: "London")
     }
 }

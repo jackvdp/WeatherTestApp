@@ -41,11 +41,6 @@ struct WeatherItemView: View {
 
 struct WeatherItemView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherItemView(weather: DisplayedHourlyWeather(hour: 13,
-                                                  temperature: 21,
-                                                  realFeel: 23,
-                                                  chanceOfRain: 60,
-                                                  windSpeed: 7,
-                                                  weather: "cloud"))
+        WeatherItemView(weather: Mocks.hourlyWeather)
     }
 }

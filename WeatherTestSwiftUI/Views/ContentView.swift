@@ -14,11 +14,13 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            if let currentWeather = viewModel.currentWeather,
-               let locationName = viewModel.locationName {
+            if let currentHourlyWeather = viewModel.currentHourlyWeather,
+               let locationName = viewModel.locationName,
+               let currentDailyWeather = viewModel.currentDailyWeather {
                 WeatherView(
                     viewModel: viewModel,
-                    currentWeather: currentWeather,
+                    currentHourlyWeather: currentHourlyWeather,
+                    currentDailyWeather: currentDailyWeather,
                     upcomingWeather: viewModel.upcomingHourlyWeather,
                     locationName: locationName
                 )

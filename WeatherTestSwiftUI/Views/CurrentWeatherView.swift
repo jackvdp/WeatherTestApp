@@ -9,20 +9,27 @@ import SwiftUI
 
 struct CurrentWeatherView: View {
     let location: String
-    let weather: DisplayedHourlyWeather
+    let currentHourWeather: DisplayedHourlyWeather
+    let currentDailyWeather: DisplayedDailyWeather
     
     var body: some View {
         VStack {
             Text(location)
                 .font(.largeTitle)
                 .fontWeight(.thin)
-            Image(systemName: weather.weather)
+            Image(systemName: currentHourWeather.weather)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .font(.body)
                 .frame(width: 120, height: 80)
-            Text("\(Int(weather.temperature)) C")
-                .font(.largeTitle)
+            HStack(spacing: 40) {
+                Text("L: \(Int(currentDailyWeather.minTemp)) C")
+                    .opacity(0.6)
+                Text("\(Int(currentHourWeather.temperature)) C")
+                    .font(.largeTitle)
+                Text("H: \(Int(currentDailyWeather.maxTemp)) C")
+                    .opacity(0.6)
+            }
         }
         .padding()
     }
@@ -31,6 +38,7 @@ struct CurrentWeatherView: View {
 struct CurrentWeatherView_Previews: PreviewProvider {
     static var previews: some View {
         CurrentWeatherView(location: "London",
-                           weather: DisplayedHourlyWeather(hour: 13, temperature: 21, realFeel: 23, chanceOfRain: 60, windSpeed: 7, weather: "cloud"))
+                           currentHourWeather: Mocks.hourlyWeather,
+                           currentDailyWeather: Mocks.dailyWeather)
     }
 }

@@ -20,8 +20,8 @@ extension CurrentLocationWeatherViewModel {
                 var nextTimes = times
                 guard !nextTimes.isEmpty else { return }
                 
-//                let firstTime = nextTimes.removeFirst()
-//                self.currentWeather = self.convertDailyWeatherToDisplayedWeather(firstTime)
+                let firstTime = nextTimes.removeFirst()
+                self.currentDailyWeather = self.convertDailyWeatherToDisplayedWeather(firstTime)
 
                 for time in nextTimes {
                     if let singleWeather = self.convertDailyWeatherToDisplayedWeather(time) {

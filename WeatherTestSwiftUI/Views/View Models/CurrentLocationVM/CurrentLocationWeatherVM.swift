@@ -12,7 +12,8 @@ class CurrentLocationWeatherViewModel: NSObject, ObservableObject {
     
     let manager = CLLocationManager()
     let forecastController = ForecastController()
-    @Published var currentWeather: DisplayedHourlyWeather?
+    @Published var currentHourlyWeather: DisplayedHourlyWeather?
+    @Published var currentDailyWeather: DisplayedDailyWeather?
     @Published var upcomingHourlyWeather = [DisplayedHourlyWeather]()
     @Published var upcomingDailyWeather = [DisplayedDailyWeather]()
     @Published var locationName: String?
@@ -37,7 +38,7 @@ class CurrentLocationWeatherViewModel: NSObject, ObservableObject {
     }
     
     private func resetWeather() {
-        currentWeather = nil
+        currentHourlyWeather = nil
         upcomingHourlyWeather = []
         upcomingDailyWeather = []
     }
