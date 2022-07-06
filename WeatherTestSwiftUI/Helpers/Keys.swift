@@ -14,7 +14,7 @@ class APIKeys {
     
 //    Set clientID and clientSecret as environment variables
 //    Set Envirionment Variables at Prodcut > Scheme > Edit Scheme > Run > Environment Variables
-//    Make sure to match strings as below
+//    Make sure to match the key strings below
     static let clientID = ProcessInfo.processInfo.environment["clientID"]!
     static let clientSecret = ProcessInfo.processInfo.environment["clientSecret"]!
 }

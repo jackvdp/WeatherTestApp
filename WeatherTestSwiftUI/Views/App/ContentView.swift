@@ -24,9 +24,6 @@ struct ContentView: View {
             }
             .tabViewStyle(.page(indexDisplayMode: .always))
             .indexViewStyle(.page(backgroundDisplayMode: .always))
-            .onAppear() {
-                
-            }
         }
     }
 }
