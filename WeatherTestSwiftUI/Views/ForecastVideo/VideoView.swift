@@ -19,6 +19,7 @@ struct VideoView: View {
                 .aspectRatio(16/9, contentMode: .fit)
         } else {
             ProgressView()
+                .progressViewStyle(.circular)
         }
     }
     
