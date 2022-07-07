@@ -33,12 +33,15 @@ class WeatherViewModel: NSObject, ObservableObject {
     private func getLocationName(_ location: CLLocationCoordinate2D) {
         let geocoder = CLGeocoder()
         
-        geocoder.reverseGeocodeLocation(CLLocation(latitude: location.latitude, longitude: location.longitude)) { placemarks, error in
+        geocoder.reverseGeocodeLocation(CLLocation(latitude: location.latitude,
+                                                   longitude: location.longitude)) { placemarks, error in
             if let firstLocation = placemarks?[0] {
-                if let name = firstLocation.name {
+                if let name = firstLocation.locality {
                     self.locationName = name
+                    return
                 }
             }
+            self.locationName = "N/A"
         }
     }
 }
