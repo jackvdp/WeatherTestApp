@@ -10,15 +10,23 @@ import AVKit
 import WebKit
 
 struct VideoView: View {
+    
+    @StateObject var viewModel: ViewModel
+    
     var body: some View {
-        YouTubeView(id: "7I_IH2TehJA")
-            .aspectRatio(16/9, contentMode: .fit)
+        if let id = viewModel.videoID {
+            YouTubeView(id: id)
+                .aspectRatio(16/9, contentMode: .fit)
+        } else {
+            ProgressView()
+        }
     }
+    
 }
 
 struct VideoView_Previews: PreviewProvider {
     static var previews: some View {
-        VideoView()
+        VideoView(viewModel: VideoView.ViewModel())
     }
 }
 
