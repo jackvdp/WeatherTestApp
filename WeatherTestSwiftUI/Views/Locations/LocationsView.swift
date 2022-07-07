@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LocationsView: View {
     
-    @ObservedObject var locationsViewModel: LocationsViewModel
+    @ObservedObject var locationsManager: LocationsManager
     @State private var textEntry = String()
     @State private var selecteditem: String?
     
@@ -19,19 +19,19 @@ struct LocationsView: View {
                 .textFieldStyle(.roundedBorder)
                 .padding()
             Button("Add") {
-                locationsViewModel.addLocation(textEntry)
+                locationsManager.addLocation(textEntry)
                 textEntry = String()
             }
             .buttonStyle(.borderedProminent)
             List {
-                ForEach(locationsViewModel.locations, id: \.self) { location in
+                ForEach(locationsManager.locations, id: \.self) { location in
                     HStack {
                         Text(location)
                         Spacer()
                         Image(systemName: "x.circle")
                             .opacity(0.6)
                             .onTapGesture {
-                                locationsViewModel.removeLocation(location)
+                                locationsManager.removeLocation(location)
                             }
                     }
                 }
@@ -44,13 +44,13 @@ struct LocationsView: View {
 }
 
 struct LocationsView_Previews: PreviewProvider {
-    static var viewModel: LocationsViewModel {
-        let vm = LocationsViewModel()
+    static var viewModel: LocationsManager {
+        let vm = LocationsManager()
         vm.locations = ["Cambridge", "London", "New York"]
         return vm
     }
     
     static var previews: some View {
-        LocationsView(locationsViewModel: viewModel)
+        LocationsView(locationsManager: viewModel)
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LocationsViewModel: ObservableObject {
+class LocationsManager: ObservableObject {
     
     @Published var locations = [String]() {
         didSet {

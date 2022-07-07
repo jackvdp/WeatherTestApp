@@ -9,18 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject var locationsViewModel = LocationsViewModel()
+    @EnvironmentObject var locationsManager: LocationsManager
     
     var body: some View {
         VStack {
             Label("Met Office", systemImage: "wind")
             TabView {
                 CurrentLocationView()
-                ForEach(locationsViewModel.locations, id: \.self) { location in
+                ForEach(locationsManager.locations, id: \.self) { location in
                     CustomLocation(viewModel: CustomLocationViewModel(location: location))
                 }
                 VideoView()
-                LocationsView(locationsViewModel: locationsViewModel)
+                LocationsView(locationsManager: locationsManager)
             }
             .tabViewStyle(.page(indexDisplayMode: .always))
             .indexViewStyle(.page(backgroundDisplayMode: .always))
@@ -31,5 +31,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(LocationsManager())
     }
 }
