@@ -19,6 +19,10 @@ extension VideoView {
         func getVideoID() {
             // do some networking
             videoID = "7I_IH2TehJA"
+            
+//            ForecastController().getYoutubeVideoID { videoID in
+//                self.videoID = videoID
+//            }
         }
         
     }

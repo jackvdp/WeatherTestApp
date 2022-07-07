@@ -21,4 +21,8 @@ class ForecastController {
         }
     }
     
+    func getYoutubeVideoID(completion: @escaping (String?) -> ()) {
+        GetYoutubeVideoID().execute(completion: completion)
+    }
+    
 }

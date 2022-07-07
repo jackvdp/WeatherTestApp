@@ -15,6 +15,8 @@
 		6D01FDAD287492D800216FFB /* LocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01FDAC287492D800216FFB /* LocationsView.swift */; };
 		6D01FDAF287492FE00216FFB /* LocationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01FDAE287492FE00216FFB /* LocationsViewModel.swift */; };
 		6D01FDB1287738E300216FFB /* VideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01FDB0287738E300216FFB /* VideoViewModel.swift */; };
+		6D01FDB328773B8200216FFB /* GetYoutubeVideoID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01FDB228773B8200216FFB /* GetYoutubeVideoID.swift */; };
+		6D01FDB528773BBD00216FFB /* YoutubeVideoGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D01FDB428773BBD00216FFB /* YoutubeVideoGateway.swift */; };
 		6D84418028731BF900065E97 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D84417F28731BF900065E97 /* App.swift */; };
 		6D84418228731BF900065E97 /* CurrentLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D84418128731BF900065E97 /* CurrentLocationView.swift */; };
 		6D84418428731BFA00065E97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D84418328731BFA00065E97 /* Assets.xcassets */; };
@@ -64,6 +66,8 @@
 		6D01FDAC287492D800216FFB /* LocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsView.swift; sourceTree = "<group>"; };
 		6D01FDAE287492FE00216FFB /* LocationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewModel.swift; sourceTree = "<group>"; };
 		6D01FDB0287738E300216FFB /* VideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewModel.swift; sourceTree = "<group>"; };
+		6D01FDB228773B8200216FFB /* GetYoutubeVideoID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetYoutubeVideoID.swift; sourceTree = "<group>"; };
+		6D01FDB428773BBD00216FFB /* YoutubeVideoGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeVideoGateway.swift; sourceTree = "<group>"; };
 		6D84417C28731BF900065E97 /* WeatherTestSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherTestSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D84417F28731BF900065E97 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		6D84418128731BF900065E97 /* CurrentLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationView.swift; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 			children = (
 				6D8441B028731E2700065E97 /* HourlyForecatsGateway.swift */,
 				6DF852E22874350900289CE8 /* DailyForecastsGateway.swift */,
+				6D01FDB428773BBD00216FFB /* YoutubeVideoGateway.swift */,
 			);
 			path = Gateway;
 			sourceTree = "<group>";
@@ -260,6 +265,7 @@
 			children = (
 				6DF852DB287433BF00289CE8 /* GetHourlyFourcasts.swift */,
 				6DF852E0287434EF00289CE8 /* GetDailyForecats.swift */,
+				6D01FDB228773B8200216FFB /* GetYoutubeVideoID.swift */,
 			);
 			path = "Use Cases";
 			sourceTree = "<group>";
@@ -402,6 +408,8 @@
 				6DF8532028744FA200289CE8 /* + HourlyWeather.swift in Sources */,
 				6DF853262874530C00289CE8 /* + Converters.swift in Sources */,
 				6D8441BF28734C6F00065E97 /* DisplayedWeather.swift in Sources */,
+				6D01FDB528773BBD00216FFB /* YoutubeVideoGateway.swift in Sources */,
+				6D01FDB328773B8200216FFB /* GetYoutubeVideoID.swift in Sources */,
 				6D84418228731BF900065E97 /* CurrentLocationView.swift in Sources */,
 				6DF852DC287433BF00289CE8 /* GetHourlyFourcasts.swift in Sources */,
 				6D8441AA28731C2900065E97 /* CurrentLocationVM.swift in Sources */,
