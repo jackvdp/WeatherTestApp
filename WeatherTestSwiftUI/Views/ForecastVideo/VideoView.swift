@@ -11,7 +11,7 @@ import WebKit
 
 struct VideoView: View {
     
-    @StateObject var viewModel: ViewModel
+    @StateObject var viewModel = ViewModel()
     
     var body: some View {
         if let id = viewModel.videoID {
@@ -27,7 +27,7 @@ struct VideoView: View {
 
 struct VideoView_Previews: PreviewProvider {
     static var previews: some View {
-        VideoView(viewModel: VideoView.ViewModel())
+        VideoView()
     }
 }
 
