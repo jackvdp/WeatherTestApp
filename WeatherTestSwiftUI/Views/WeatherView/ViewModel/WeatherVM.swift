@@ -8,9 +8,10 @@
 import Foundation
 import CoreLocation
 
-class WeatherViewModel: NSObject, ObservableObject {
-    var manager = CLLocationManager()
-    var forecastController = ForecastController()
+class WeatherViewModel: ObservableObject {
+    
+    let forecastController = ForecastController()
+    let locationController = LocationController()
     @Published var selection: DailyHourly = .daily
     @Published var currentHourlyWeather: DisplayedHourlyWeather?
     @Published var currentDailyWeather: DisplayedDailyWeather?
@@ -25,25 +26,10 @@ class WeatherViewModel: NSObject, ObservableObject {
     
     func getWeather() {
         guard let location = location else { return }
-        getLocationName(location)
         getHourlyWeather(location)
         getDailyWeather(location)
     }
     
-    private func getLocationName(_ location: CLLocationCoordinate2D) {
-        let geocoder = CLGeocoder()
-        
-        geocoder.reverseGeocodeLocation(CLLocation(latitude: location.latitude,
-                                                   longitude: location.longitude)) { placemarks, error in
-            if let firstLocation = placemarks?[0] {
-                if let name = firstLocation.locality {
-                    self.locationName = name
-                    return
-                }
-            }
-            self.locationName = "N/A"
-        }
-    }
 }
 
 enum DailyHourly: String, CaseIterable, Identifiable {

@@ -8,7 +8,6 @@
 import Foundation
 import Alamofire
 
-
 class DailyForecatsGateway {
     
     func getForLocation(longtitude: Double, latitude: Double, completion: @escaping (Int, DailyWeather?) -> ()) {
@@ -25,16 +24,19 @@ class DailyForecatsGateway {
             let code = res.response?.statusCode else {
                 completion(404, nil)
                 return
-                
             }
             
-            let decoder = JSONDecoder()
-            
-            let weatherModel = try? decoder.decode(DailyWeather.self, from: data)
-            
+            let weatherModel = self.decodeData(data)
+                        
             completion(code, weatherModel)
         }
         
+    }
+    
+    func decodeData(_ data: Data) -> DailyWeather? {
+        let decoder = JSONDecoder()
+        let weatherModel = try? decoder.decode(DailyWeather.self, from: data)
+        return weatherModel
     }
     
 }

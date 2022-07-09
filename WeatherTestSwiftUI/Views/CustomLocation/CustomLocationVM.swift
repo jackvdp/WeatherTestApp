@@ -1,33 +1,20 @@
 //
-//  CustomLocationViewModel.swift
+//  CustomLocationVM.swift
 //  WeatherTestSwiftUI
 //
-//  Created by Jack Vanderpump on 05/07/2022.
+//  Created by Jack Vanderpump on 07/07/2022.
 //
 
 import Foundation
-import CoreLocation
 
 class CustomLocationViewModel: WeatherViewModel {
     
-    init(location: String) {
+    init(whereFor location: String) {
         super.init()
-        getLocationCoord(location: location)
-    }
-    
-    func getLocationCoord(location: String) {
-        let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(location) { (placemarks, error) in
-            if error == nil {
-                if let placemark = placemarks?[0] {
-                    let location = placemark.location!
-                    
-                    self.location = location.coordinate
-                    return
-                }
-            }
-            
+        locationController.getCustomLocation(where: location) { coord, name in
+            self.location = coord
+            self.locationName = name
         }
     }
-
+    
 }

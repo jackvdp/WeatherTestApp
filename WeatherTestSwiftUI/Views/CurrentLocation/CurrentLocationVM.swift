@@ -1,31 +1,24 @@
 //
-//  ViewModel.swift
-//  WeatherTestUI
+//  CurrentLocationViewModel.swift
+//  WeatherTestSwiftUI
 //
-//  Created by Jack Vanderpump on 04/07/2022.
+//  Created by Jack Vanderpump on 07/07/2022.
 //
 
 import Foundation
-import CoreLocation
 
-class CurrentLocationViewModel: WeatherViewModel, CLLocationManagerDelegate {
-
+class CurrentLocationViewModel: WeatherViewModel {
+    
     override init() {
         super.init()
-        manager.delegate = self
-        requestLocation()
+        
     }
-
+    
     func requestLocation() {
-        manager.requestLocation()
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        location = locations.first?.coordinate
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
+        locationController.getCurrentLocation { coord, name in
+            self.location = coord
+            self.locationName = name
+        }
     }
     
 }

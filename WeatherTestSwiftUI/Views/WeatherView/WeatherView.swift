@@ -37,7 +37,7 @@ struct WeatherView: View {
 struct WeatherView_Previews: PreviewProvider {
     static var previews: some View {
         WeatherView(
-            viewModel: CurrentLocationViewModel(),
+            viewModel: WeatherViewModel(),
             currentHourlyWeather: Mocks.hourlyWeather,
             currentDailyWeather: Mocks.dailyWeather,
             upcomingHourlyWeather: Mocks.hourlyWeatherArray,

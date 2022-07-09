@@ -27,6 +27,6 @@ struct HourlyListView: View {
 
 struct WeatherListView_Previews: PreviewProvider {
     static var previews: some View {
-        HourlyListView(viewModel: CurrentLocationViewModel(), hourlyWeather: Mocks.hourlyWeatherArray)
+        HourlyListView(viewModel: WeatherViewModel(), hourlyWeather: Mocks.hourlyWeatherArray)
     }
 }

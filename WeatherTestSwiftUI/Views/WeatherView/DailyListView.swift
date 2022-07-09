@@ -26,6 +26,6 @@ struct DailyListView: View {
 
 struct DailyListView_Previews: PreviewProvider {
     static var previews: some View {
-        DailyListView(viewModel: CurrentLocationViewModel(), dailyWeather: Mocks.dailyWeatherArray)
+        DailyListView(viewModel: WeatherViewModel(), dailyWeather: Mocks.dailyWeatherArray)
     }
 }

@@ -27,13 +27,17 @@ class HourlyForecatsGateway {
                 
             }
             
-            let decoder = JSONDecoder()
-            
-            let weatherModel = try? decoder.decode(HourlyWeather.self, from: data)
+            let weatherModel = self.decodeData(data)
             
             completion(code, weatherModel)
         }
         
+    }
+    
+    func decodeData(_ data: Data) -> HourlyWeather? {
+        let decoder = JSONDecoder()
+        let weatherModel = try? decoder.decode(HourlyWeather.self, from: data)
+        return weatherModel
     }
     
 }

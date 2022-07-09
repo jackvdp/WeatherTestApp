@@ -35,6 +35,6 @@ struct CustomLocation: View {
 
 struct CustomLocation_Previews: PreviewProvider {
     static var previews: some View {
-        CustomLocation(viewModel: CustomLocationViewModel(location: "Cambridge"))
+        CustomLocation(viewModel: CustomLocationViewModel(whereFor: "Cambridge"))
     }
 }

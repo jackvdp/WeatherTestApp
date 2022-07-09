@@ -31,6 +31,7 @@ struct CurrentLocationView: View {
                 LocationButton {
                     viewModel.requestLocation()
                 }
+                .id("LocationButton")
                 .background(Color.black)
                 .clipShape(Capsule())
                 .foregroundColor(.white)

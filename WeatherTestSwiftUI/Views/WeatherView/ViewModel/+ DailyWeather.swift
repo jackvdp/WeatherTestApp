@@ -36,17 +36,24 @@ extension WeatherViewModel {
     
     private func convertDailyWeatherToDisplayedWeather(_ time: DailyWeather.TimeSery) -> DisplayedDailyWeather? {
         if let day = self.getDay(dateString: time.time) {
-            return DisplayedDailyWeather(
-                day: day,
-                maxTemp: time.dayUpperBoundMaxTemp,
-                minTemp: time.nightLowerBoundMinTemp,
-                maxRealFeel: time.dayUpperBoundMaxFeelsLikeTemp,
-                minRealFeel: time.nightLowerBoundMinFeelsLikeTemp,
-                chanceOfRain: time.dayProbabilityOfRain ?? 0,
-                windSpeed: Int(time.midday10MWindSpeed),
-                weather: getWeatherImage(code: time.daySignificantWeatherCode ?? 100)
-            )
             
+            if let upperBoundTemp = time.dayUpperBoundMaxTemp,
+               let upperBoundRealFeelTemp = time.dayUpperBoundMaxFeelsLikeTemp,
+               let wind = time.midday10MWindSpeed,
+               let rain = time.dayProbabilityOfRain {
+                
+                return DisplayedDailyWeather(
+                    day: day,
+                    maxTemp: upperBoundTemp,
+                    minTemp: time.nightLowerBoundMinTemp,
+                    maxRealFeel: upperBoundRealFeelTemp,
+                    minRealFeel: time.nightLowerBoundMinFeelsLikeTemp,
+                    chanceOfRain: rain,
+                    windSpeed: Int(wind),
+                    weather: getWeatherImage(code: time.daySignificantWeatherCode ?? 100)
+                )
+                
+            }
         }
         return nil
     }

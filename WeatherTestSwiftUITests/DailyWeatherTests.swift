@@ -36,18 +36,31 @@ class DailyWeatherTests: XCTestCase {
         
     }
     
+    func testDecodeToModel() {
+        let gateway = DailyForecatsGateway()
+        var weather: DailyWeather?
+        let data = TestData.dialyWeather.data(using: .utf8)!
+        
+        weather = gateway.decodeData(data)
+        
+        XCTAssertNotNil(weather)
+        XCTAssertNotNil(weather?.features.first?.properties.timeSeries[1].dayUpperBoundMaxTemp)
+    }
+    
     func testGatewayGetsWeatherModel() {
         let gateway = DailyForecatsGateway()
         var weather: DailyWeather?
         let promise = expectation(description: "Completion handler invoked")
         
-        gateway.getForLocation(longtitude: longitude, latitude: latittude) { _, w in
+        gateway.getForLocation(longtitude: longitude,
+                               latitude: latittude) { _, w in
             weather = w
             promise.fulfill()
         }
         wait(for: [promise], timeout: 5)
         
         XCTAssertNotNil(weather)
+        XCTAssertNotNil(weather?.features.first?.properties.timeSeries[1].dayUpperBoundMaxTemp)
     }
     
     func testUseCaseProvidesErrorOnBadLocation() {

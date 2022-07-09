@@ -7,6 +7,14 @@
 
 import Foundation
 
+// This file was generated from JSON Schema using quicktype, do not modify it directly.
+// To parse the JSON, add this file to your project and do:
+//
+//   let weather = try? newJSONDecoder().decode(Weather.self, from: jsonData)
+
+import Foundation
+
+// MARK: - Weather
 struct DailyWeather: Codable {
     let type: String
     let features: [Feature]
@@ -35,19 +43,24 @@ struct DailyWeather: Codable {
     // MARK: - TimeSery
     struct TimeSery: Codable {
         let time: String
-        let midday10MWindSpeed, midnight10MWindSpeed: Double
-        let midday10MWindDirection, midnight10MWindDirection: Int
-        let midday10MWindGust, midnight10MWindGust: Double
-        let middayVisibility, midnightVisibility: Int
-        let middayRelativeHumidity, midnightRelativeHumidity: Double
-        let middayMslp, midnightMslp, nightSignificantWeatherCode: Int
-        let dayMaxScreenTemperature, nightMinScreenTemperature, dayUpperBoundMaxTemp, nightUpperBoundMinTemp: Double
-        let dayLowerBoundMaxTemp, nightLowerBoundMinTemp, nightMinFeelsLikeTemp, dayUpperBoundMaxFeelsLikeTemp: Double
-        let nightUpperBoundMinFeelsLikeTemp, dayLowerBoundMaxFeelsLikeTemp, nightLowerBoundMinFeelsLikeTemp: Double
+        let midnight10MWindSpeed: Double
+        let midnight10MWindDirection: Int
+        let midnight10MWindGust: Double
+        let midnightVisibility: Int
+        let midnightRelativeHumidity: Double
+        let midnightMslp, nightSignificantWeatherCode: Int
+        let nightMinScreenTemperature, nightUpperBoundMinTemp, nightLowerBoundMinTemp, nightMinFeelsLikeTemp: Double
+        let nightUpperBoundMinFeelsLikeTemp, nightLowerBoundMinFeelsLikeTemp: Double
         let nightProbabilityOfPrecipitation, nightProbabilityOfSnow, nightProbabilityOfHeavySnow, nightProbabilityOfRain: Int
         let nightProbabilityOfHeavyRain, nightProbabilityOfHail, nightProbabilityOfSferics: Int
-        let maxUvIndex, daySignificantWeatherCode: Int?
-        let dayMaxFeelsLikeTemp: Double?
+        let midday10MWindSpeed: Double?
+        let midday10MWindDirection: Int?
+        let midday10MWindGust: Double?
+        let middayVisibility: Int?
+        let middayRelativeHumidity: Double?
+        let middayMslp, maxUvIndex, daySignificantWeatherCode: Int?
+        let dayMaxScreenTemperature, dayUpperBoundMaxTemp, dayLowerBoundMaxTemp, dayMaxFeelsLikeTemp: Double?
+        let dayUpperBoundMaxFeelsLikeTemp, dayLowerBoundMaxFeelsLikeTemp: Double?
         let dayProbabilityOfPrecipitation, dayProbabilityOfSnow, dayProbabilityOfHeavySnow, dayProbabilityOfRain: Int?
         let dayProbabilityOfHeavyRain, dayProbabilityOfHail, dayProbabilityOfSferics: Int?
     }
@@ -81,5 +94,7 @@ struct DailyWeather: Codable {
         let type: String
     }
 }
+
+
 
 

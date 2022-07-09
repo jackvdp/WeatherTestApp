@@ -26,7 +26,8 @@ class HourlyWeatherTests: XCTestCase {
         var statusCode: Int?
         let promise = expectation(description: "Completion handler invoked")
         
-        gateway.getForLocation(longtitude: longitude, latitude: latittude) { code, _ in
+        gateway.getForLocation(longtitude: longitude,
+                               latitude: latittude) { code, _ in
             statusCode = code
             promise.fulfill()
         }
@@ -34,6 +35,16 @@ class HourlyWeatherTests: XCTestCase {
         
         XCTAssertEqual(statusCode, 200)
         
+    }
+    
+    func testDecodeToModel() {
+        let gateway = HourlyForecatsGateway()
+        var weather: HourlyWeather?
+        let data = TestData.hourlyWeather.data(using: .utf8)!
+        
+        weather = gateway.decodeData(data)
+        
+        XCTAssertNotNil(weather)
     }
     
     func testGatewayGetsWeatherModel() {
