@@ -16,15 +16,28 @@ struct ContentView: View {
             Label("Met Office", systemImage: "wind")
             TabView {
                 CurrentLocationView()
-                ForEach(locationsManager.locations, id: \.self) { location in
-                    CustomLocationView(viewModel: CustomLocationViewModel(whereFor: location))
-                }
                 VideoView()
                 LocationsView(locationsManager: locationsManager)
+                ForEach(locationsManager.locations,  id: \.self) { location in
+                    CustomLocationView(viewModel: CustomLocationViewModel(whereFor: location))
+                }
             }
             .tabViewStyle(.page(indexDisplayMode: .always))
             .indexViewStyle(.page(backgroundDisplayMode: .always))
         }
+        .onAppear() {
+            changeIndicators()
+        }
+    }
+    
+    func changeIndicators() {
+        let indicators = UIPageControl.appearance()
+        let locImage = UIImage(systemName: "location.fill")
+        let vidImage = UIImage(systemName: "video.fill")
+        let mapImage = UIImage(systemName: "map.fill")
+        indicators.setIndicatorImage(locImage, forPage: 0)
+        indicators.setIndicatorImage(vidImage, forPage: 1)
+        indicators.setIndicatorImage(mapImage, forPage: 2)
     }
 }
 

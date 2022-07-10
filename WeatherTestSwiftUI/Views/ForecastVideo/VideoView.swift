@@ -14,18 +14,33 @@ struct VideoView: View {
     @StateObject var viewModel = ViewModel()
     
     var body: some View {
-        if let id = viewModel.videoID {
-            YouTubeView(id: id)
-                .aspectRatio(16/9, contentMode: .fit)
-        } else {
-            ProgressView()
-                .progressViewStyle(.circular)
+        VStack(alignment: .leading, spacing: 50) {
+            Text("Latest Forecast Video")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding()
+            if let id = viewModel.videoID {
+                YouTubeView(id: id)
+                    .aspectRatio(16/9, contentMode: .fit)
+                    .cornerRadius(10)
+                    .padding()
+            } else {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .aspectRatio(16/9, contentMode: .fit)
+                        .foregroundColor(.primary.opacity(0.5))
+                    ProgressView()
+                        .progressViewStyle(.circular)
+                }
+            }
+            Spacer()
         }
     }
     
 }
 
 struct VideoView_Previews: PreviewProvider {
+    
     static var previews: some View {
         VideoView()
     }

@@ -14,15 +14,23 @@ struct LocationsView: View {
     @State private var selecteditem: String?
     
     var body: some View {
-        VStack {
-            TextField("Enter location...", text: $textEntry)
-                .textFieldStyle(.roundedBorder)
-                .padding()
-            Button("Add") {
-                locationsManager.addLocation(textEntry)
-                textEntry = String()
+        VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 0) {
+                Text("Your Locations")
+                    .font(.title)
+                    .fontWeight(.bold)
             }
-            .buttonStyle(.borderedProminent)
+            .padding()
+            HStack {
+                TextField("Enter location...", text: $textEntry)
+                    .textFieldStyle(.roundedBorder)
+                Button("Add") {
+                    locationsManager.addLocation(textEntry)
+                    textEntry = String()
+                }
+                .buttonStyle(.borderedProminent)
+            }
+            .padding()
             List {
                 ForEach(locationsManager.locations, id: \.self) { location in
                     HStack {
