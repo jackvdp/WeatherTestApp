@@ -643,7 +643,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Permission needed to retrieve weather for your location.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location needed for weather update";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Location needed for weather update";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Permission needed to retrieve weather for your location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -676,7 +676,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Permission needed to retrieve weather for your location.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location needed for weather update";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Location needed for weather update";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Permission needed to retrieve weather for your location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

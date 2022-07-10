@@ -6,11 +6,14 @@
 //
 
 import Foundation
+import CoreLocation
 
 class CurrentLocationViewModel: WeatherViewModel {
     
     override init() {
         super.init()
+        getCurrentLocationByDefault()
+        requestLocation()
     }
     
     func requestLocation() {
@@ -18,6 +21,10 @@ class CurrentLocationViewModel: WeatherViewModel {
             self.location = coord
             self.locationName = name
         }
+    }
+    
+    func getCurrentLocationByDefault() {
+        CLLocationManager().requestAlwaysAuthorization()
     }
     
 }
