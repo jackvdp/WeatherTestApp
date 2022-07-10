@@ -14,16 +14,15 @@ struct CurrentLocationView: View {
     
     var body: some View {
         VStack {
-            if let currentHourlyWeather = viewModel.currentHourlyWeather,
-               let locationName = viewModel.locationName,
-               let currentDailyWeather = viewModel.currentDailyWeather {
+            if let dayWeather = viewModel.upcomingDailyWeather.first,
+               let hourWeather = viewModel.upcomingHourlyWeather.first {
                 WeatherView(
                     viewModel: viewModel,
-                    currentHourlyWeather: currentHourlyWeather,
-                    currentDailyWeather: currentDailyWeather,
+                    currentHourlyWeather: hourWeather,
+                    currentDailyWeather: dayWeather,
                     upcomingHourlyWeather: viewModel.upcomingHourlyWeather,
                     upcomingDailyWeather: viewModel.upcomingDailyWeather,
-                    locationName: locationName
+                    locationName: viewModel.locationName ?? "N/A"
                 )
             } else {
                 Text("Click to get weather for current location")

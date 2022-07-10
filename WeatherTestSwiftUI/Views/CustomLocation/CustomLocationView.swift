@@ -7,22 +7,21 @@
 
 import SwiftUI
 
-struct CustomLocation: View {
+struct CustomLocationView: View {
     
     @StateObject var viewModel: CustomLocationViewModel
     
     var body: some View {
         VStack {
-            if let currentHourlyWeather = viewModel.currentHourlyWeather,
-               let locationName = viewModel.locationName,
-               let currentDailyWeather = viewModel.currentDailyWeather {
+            if let dayWeather = viewModel.upcomingDailyWeather.first,
+               let hourWeather = viewModel.upcomingHourlyWeather.first {
                 WeatherView(
                     viewModel: viewModel,
-                    currentHourlyWeather: currentHourlyWeather,
-                    currentDailyWeather: currentDailyWeather,
+                    currentHourlyWeather: hourWeather,
+                    currentDailyWeather: dayWeather,
                     upcomingHourlyWeather: viewModel.upcomingHourlyWeather,
                     upcomingDailyWeather: viewModel.upcomingDailyWeather,
-                    locationName: locationName
+                    locationName: viewModel.locationName ?? "N/A"
                 )
             } else {
                 ProgressView()
@@ -35,6 +34,6 @@ struct CustomLocation: View {
 
 struct CustomLocation_Previews: PreviewProvider {
     static var previews: some View {
-        CustomLocation(viewModel: CustomLocationViewModel(whereFor: "Cambridge"))
+        CustomLocationView(viewModel: CustomLocationViewModel(whereFor: "Cambridge"))
     }
 }

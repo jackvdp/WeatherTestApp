@@ -12,24 +12,10 @@ extension WeatherViewModel {
     
     func getDailyWeather(_ location: CLLocationCoordinate2D) {
         forecastController.getDaily(longtitude: location.longitude, latitude: location.latitude) { weather in
-            
             guard let weather = weather else { return }
             
             if let times = weather.features.first?.properties.timeSeries {
-                
-                var nextTimes = times
-                guard !nextTimes.isEmpty else { return }
-                self.upcomingDailyWeather = []
-                
-                let firstTime = nextTimes.removeFirst()
-                self.currentDailyWeather = self.convertDailyWeatherToDisplayedWeather(firstTime)
-
-                for time in nextTimes {
-                    if let singleWeather = self.convertDailyWeatherToDisplayedWeather(time) {
-                        self.upcomingDailyWeather.append(singleWeather)
-                    }
-                    
-                }
+                self.upcomingDailyWeather = times.compactMap { self.convertDailyWeatherToDisplayedWeather($0) }
             }
         }
     }

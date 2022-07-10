@@ -17,7 +17,7 @@ struct ContentView: View {
             TabView {
                 CurrentLocationView()
                 ForEach(locationsManager.locations, id: \.self) { location in
-                    CustomLocation(viewModel: CustomLocationViewModel(whereFor: location))
+                    CustomLocationView(viewModel: CustomLocationViewModel(whereFor: location))
                 }
                 VideoView()
                 LocationsView(locationsManager: locationsManager)

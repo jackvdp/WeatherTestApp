@@ -10,7 +10,7 @@ import CoreLocation
 
 class GetCurrentLocation: NSObject, CLLocationManagerDelegate {
     
-    var manager = CLLocationManager()
+    private let manager = CLLocationManager()
     var locationName: String?
     var completion: ((CLLocationCoordinate2D?, String?) -> ())?
     var location: CLLocationCoordinate2D? {
@@ -41,8 +41,14 @@ class GetCurrentLocation: NSObject, CLLocationManagerDelegate {
         location = locations.first?.coordinate
     }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    func locationManager(_ manager: CLLocationManager,
+                         didFailWithError error: Error) {
         print(error)
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        print(manager.authorizationStatus)
+        
     }
     
 }

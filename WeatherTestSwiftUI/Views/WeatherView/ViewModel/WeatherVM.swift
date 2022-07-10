@@ -13,8 +13,6 @@ class WeatherViewModel: ObservableObject {
     let forecastController = ForecastController()
     let locationController = LocationController()
     @Published var selection: DailyHourly = .daily
-    @Published var currentHourlyWeather: DisplayedHourlyWeather?
-    @Published var currentDailyWeather: DisplayedDailyWeather?
     @Published var upcomingHourlyWeather = [DisplayedHourlyWeather]()
     @Published var upcomingDailyWeather = [DisplayedDailyWeather]()
     @Published var locationName: String?

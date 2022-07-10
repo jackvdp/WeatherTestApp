@@ -12,25 +12,10 @@ extension WeatherViewModel {
     
     func getHourlyWeather(_ location: CLLocationCoordinate2D) {
         forecastController.getHourly(longtitude: location.longitude, latitude: location.latitude) { weather in
-            
             guard let weather = weather else { return }
             
             if let times = weather.features.first?.properties.timeSeries {
-                
-                var nextTimes = times
-                guard !nextTimes.isEmpty else { return }
-                self.currentHourlyWeather = nil
-                self.upcomingHourlyWeather = []
-                
-                let firstTime = nextTimes.removeFirst()
-                self.currentHourlyWeather = self.convertHourlyWeatherToDisplayedWeather(firstTime)
-                
-                for time in nextTimes {
-                    if let singleWeather = self.convertHourlyWeatherToDisplayedWeather(time) {
-                        self.upcomingHourlyWeather.append(singleWeather)
-                    }
-                    
-                }
+                self.upcomingHourlyWeather = times.compactMap { self.convertHourlyWeatherToDisplayedWeather($0) }
             }
         }
     }

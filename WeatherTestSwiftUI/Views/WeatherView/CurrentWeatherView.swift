@@ -23,11 +23,11 @@ struct CurrentWeatherView: View {
                 .font(.body)
                 .frame(width: 120, height: 80)
             HStack(spacing: 40) {
-                Text("L: \(Int(currentDailyWeather.minTemp)) C")
+                Text("L: \(Int(currentDailyWeather.minTemp))°C")
                     .opacity(0.6)
-                Text("\(Int(currentHourWeather.temperature)) C")
+                Text("\(Int(currentHourWeather.temperature))°C")
                     .font(.largeTitle)
-                Text("H: \(Int(currentDailyWeather.maxTemp)) C")
+                Text("H: \(Int(currentDailyWeather.maxTemp))°C")
                     .opacity(0.6)
             }
         }

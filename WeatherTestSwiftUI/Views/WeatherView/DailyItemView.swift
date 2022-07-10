@@ -20,9 +20,9 @@ struct DailyItemView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 30, height: 30)
             Spacer()
-            Text("\(Int(weather.minTemp)) C")
+            Text("\(Int(weather.minTemp))°C")
                 .opacity(0.6)
-            Text("\(Int(weather.maxTemp)) C")
+            Text("\(Int(weather.maxTemp))°C")
         }
         .padding(.vertical)
     }

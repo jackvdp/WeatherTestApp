@@ -87,4 +87,28 @@ class CustomLocationTests: XCTestCase {
         XCTAssertNotNil(coordinate)
         XCTAssertEqual(name, "London")
     }
+    
+    func testGetWeatherForCustomLocation() {
+        let locationController = LocationController()
+        let forecastController = ForecastController()
+        let promise = expectation(description: "Completion handler invoked")
+        let location = "London"
+        var weather: DailyWeather?
+        
+        locationController.getCustomLocation(where: location) { coord, n in
+            guard let coord = coord else {
+                promise.fulfill()
+                return
+            }
+            
+            forecastController.getDaily(longtitude: coord.longitude, latitude: coord.latitude) { w in
+                weather = w
+                promise.fulfill()
+            }
+        }
+        wait(for: [promise], timeout: 5)
+        
+        XCTAssertNotNil(weather)
+        XCTAssertNotNil(weather?.features.first?.properties.timeSeries[1].dayUpperBoundMaxTemp)
+    }
 }

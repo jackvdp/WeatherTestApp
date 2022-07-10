@@ -13,8 +13,8 @@ struct DailyListView: View {
     
     var body: some View {
         List {
-            ForEach(dailyWeather) { weather in
-                DailyItemView(weather: weather)
+            ForEach(1..<dailyWeather.count, id: \.self) { i in
+                DailyItemView(weather: dailyWeather[i])
             }
         }
         .listStyle(.plain)

@@ -22,7 +22,7 @@ struct HourlyItemView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 40, height: 40)
             VStack(alignment: .leading) {
-                Text("Real Feel: \(Int(weather.realFeel)) C")
+                Text("Real Feel: \(Int(weather.realFeel))°C")
                 if weather.chanceOfRain == 0 {
                     Text("Wind: \(Int(weather.windSpeed)) mph")
                 } else {
@@ -32,7 +32,7 @@ struct HourlyItemView: View {
             .opacity(0.6)
             .font(.callout)
             Spacer()
-            Text("\(Int(weather.temperature)) C")
+            Text("\(Int(weather.temperature))°C")
                 .font(.title)
         }
         .padding(.vertical)
