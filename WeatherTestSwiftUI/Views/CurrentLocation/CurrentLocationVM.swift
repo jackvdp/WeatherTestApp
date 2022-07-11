@@ -12,10 +12,10 @@ class CurrentLocationViewModel: WeatherViewModel {
     
     override init() {
         super.init()
-        getCurrentLocationByDefault()
     }
     
     func requestLocation() {
+        getCurrentLocationByDefault()
         locationController.getCurrentLocation { coord, name in
             self.location = coord
             self.locationName = name

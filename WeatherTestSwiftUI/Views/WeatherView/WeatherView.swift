@@ -22,6 +22,7 @@ struct WeatherView: View {
                            currentHourWeather: currentHourlyWeather,
                            currentDailyWeather: currentDailyWeather)
         SegmentedPicker(selection: $viewModel.selection)
+            .accessibilityIdentifier("segmentPicker")
         switch viewModel.selection {
         case .daily:
             DailyListView(viewModel: viewModel,

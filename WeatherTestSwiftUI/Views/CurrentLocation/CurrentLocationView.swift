@@ -30,6 +30,7 @@ struct CurrentLocationView: View {
                 LocationButton {
                     viewModel.requestLocation()
                 }
+                .accessibilityIdentifier("LocationButton")
                 .clipShape(Capsule())
                 .foregroundColor(.white)
             }
