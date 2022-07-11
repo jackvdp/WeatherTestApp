@@ -24,6 +24,7 @@ struct VideoView: View {
                     .aspectRatio(16/9, contentMode: .fit)
                     .cornerRadius(10)
                     .padding()
+                    .accessibilityIdentifier("Video")
             } else {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)

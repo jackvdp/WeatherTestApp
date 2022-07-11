@@ -27,12 +27,14 @@ struct CurrentLocationView: View {
             } else {
                 Text("Click to get weather for current location")
                     .fontWeight(.bold)
-                LocationButton {
+                Button("Current Location") {
                     viewModel.requestLocation()
                 }
+                .padding()
                 .accessibilityIdentifier("LocationButton")
-                .clipShape(Capsule())
                 .foregroundColor(.white)
+                .background(Color.blue)
+                .clipShape(Capsule())
             }
         }
         .onAppear() {
