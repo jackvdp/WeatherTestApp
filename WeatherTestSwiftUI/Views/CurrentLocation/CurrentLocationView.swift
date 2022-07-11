@@ -32,7 +32,13 @@ struct CurrentLocationView: View {
                 }
                 .clipShape(Capsule())
                 .foregroundColor(.white)
+                Button("Location") {
+                    viewModel.requestLocation()
+                }
             }
+        }
+        .onAppear() {
+//            viewModel.requestLocation()
         }
     }
 }

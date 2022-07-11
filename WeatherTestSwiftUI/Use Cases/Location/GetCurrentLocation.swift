@@ -24,6 +24,10 @@ class GetCurrentLocation: NSObject, CLLocationManagerDelegate {
         manager.delegate = self
     }
     
+    deinit {
+        print("deinit")
+    }
+    
     func execute(completion: @escaping (CLLocationCoordinate2D?, String?) -> ()) {
         self.completion = completion
         manager.requestLocation()
@@ -47,7 +51,6 @@ class GetCurrentLocation: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        print(manager.authorizationStatus)
         
     }
     
