@@ -24,17 +24,18 @@ struct LocationsView: View {
             HStack {
                 TextField("Enter location...", text: $textEntry)
                     .textFieldStyle(.roundedBorder)
+                    .accessibilityIdentifier("locationTextField")
                 Button("Add") {
                     locationsManager.addLocation(textEntry)
                     textEntry = String()
                 }
-                .buttonStyle(.borderedProminent)
+                .buttonStyle(.borderedProminent).accessibilityIdentifier("addLocationButton")
             }
             .padding()
             List {
                 ForEach(locationsManager.locations, id: \.self) { location in
                     HStack {
-                        Text(location)
+                        Text(location).accessibilityIdentifier("CustomLocation_\(location)")
                         Spacer()
                         Image(systemName: "x.circle")
                             .opacity(0.6)

@@ -10,21 +10,16 @@ import CoreLocation
 
 class CurrentLocationViewModel: WeatherViewModel {
     
-    let latittude = 51.4934
-    let longitude = 0.0098
-    
     override init() {
         super.init()
     }
     
     func requestLocation() {
-//        getCurrentLocationByDefault()
-        self.location = CLLocationCoordinate2D(latitude: latittude, longitude: longitude)
-        self.locationName = "London"
-//        locationController.getCurrentLocation { coord, name in
-//            self.location = coord
-//            self.locationName = name
-//        }
+        getCurrentLocationByDefault()
+        locationController.getCurrentLocation { coord, name in
+            self.location = coord
+            self.locationName = name
+        }
     }
     
     func getCurrentLocationByDefault() {

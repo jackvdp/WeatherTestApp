@@ -16,6 +16,7 @@ struct SegmentedPicker: View {
             ForEach(DailyHourly.allCases) { type in
                 Text(type.rawValue)
                     .tag(type)
+                    .accessibilityIdentifier("segmentPicker_\(type.rawValue)")
             }
         }
         .pickerStyle(.segmented)

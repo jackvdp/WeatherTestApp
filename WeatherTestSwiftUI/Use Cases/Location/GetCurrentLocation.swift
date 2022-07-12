@@ -51,7 +51,7 @@ class GetCurrentLocation: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        
+        manager.requestLocation()
     }
     
 }
