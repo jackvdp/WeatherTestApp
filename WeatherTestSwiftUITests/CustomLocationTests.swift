@@ -43,7 +43,6 @@ class CustomLocationTests: XCTestCase {
         let coord = CLLocationCoordinate2D(latitude: latittude,
                                            longitude: longitude)
         
-        
         useCase.getLocationName(location: coord) { n in
             name = n
             promise.fulfill()
