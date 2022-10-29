@@ -38,7 +38,7 @@ struct CurrentLocationView: View {
             }
         }
         .onAppear() {
-//            viewModel.requestLocation()
+            viewModel.requestLocation()
         }
     }
 }
