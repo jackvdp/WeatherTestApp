@@ -13,6 +13,14 @@ class LockScreenViewModel: ObservableObject {
     var coordinates = CLLocationCoordinate2D(latitude: 51.5072,
                                              longitude: 0.1276)
     
+    init() {
+        print("***** initi")
+    }
+    
+    deinit {
+        print("***** deinit")
+    }
+    
     @Published var fetchingData = true
     
     @Published var imageName: String = ""
@@ -24,11 +32,10 @@ class LockScreenViewModel: ObservableObject {
     func fetchCurrentWeather() {
         fetchingData = true
         forecastController.getHourly(longtitude: coordinates.longitude,
-                                     latitude: coordinates.latitude) { [weak self] weather in
-            self?.fetchingData = false
+                                     latitude: coordinates.latitude) { weather in
+            self.fetchingData = false
             
-            guard let self,
-                  let currentWeather = weather?.features.first?.properties.timeSeries.first else { return }
+            guard let currentWeather = weather?.features.first?.properties.timeSeries.first else { return }
             
             self.temperatureCurrent = currentWeather.screenTemperature.description
             self.temperatureLow = currentWeather.screenTemperature.description
